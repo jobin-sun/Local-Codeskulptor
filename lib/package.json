@@ -1,0 +1,14 @@
+{
+  "name": "index",
+  "main": "index.html",
+  "version": "0.0.1",
+  "single-instance": true,
+  "window": {
+    "title": "test",
+    "position": "center",
+    "resizable": true,
+    "toolbar":false,
+    "frame":true
+  },
+  "chromium-args": "--enable-threaded-compositing"
+ }

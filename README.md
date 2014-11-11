@@ -27,10 +27,10 @@ Local Codeskulptor incorporates code from:
 License
 -------
 
-bitcoin-php is free and unencumbered public domain software. For more
+Local-Codeskulptor is free and unencumbered public domain software. For more
 information, see <http://unlicense.org/> or the accompanying UNLICENSE file.
 
-[node-webkit]:		http://www.bitcoin.org/
+[node-webkit]:		https://github.com/rogerwang/node-webkit/
 [skulpt]:	http://www.skulpt.org/
 [codeskulptor]: http://www.codeskulptor.org/
 [Manifest-format]:https://github.com/rogerwang/node-webkit/wiki/Manifest-format

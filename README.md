@@ -1,7 +1,7 @@
 Local-Codeskulptor
 ==================
 
-A Tool to make Codeskulptor work offline .
+A Tool to make Codeskulptor works offline .
 
 Documentation
 -------------

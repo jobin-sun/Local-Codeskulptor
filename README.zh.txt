@@ -7,7 +7,7 @@ codeskulptor打包成本地可执行文件说明
 
 高级应用:
 1,在src目录下新增package.json配置文件,实现个性化需求,详见:
-  https://github.com/rogerwang/node-webkit/wiki/Manifest-format
+  https://github.com/rogerwang/node-webkit/wiki/Manifest-format , 注意main页面必须为index.html
 2,把资源打包到本地,比如把一网络音频打包到本地:
   1)修改codeskulptor.py网络请求的url地址到本地地址
   例如:

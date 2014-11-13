@@ -1,16 +1,13 @@
 @echo off
 mkdir Temp
 cd Temp
-type ..\lib\top.txt > index.html
-type ..\src\codeskulptor.py >> index.html
-type ..\lib\bottom.txt >> index.html
+copy ..\lib\index.html index.html
 copy ..\lib\skulpt.min.js skulpt.min.js
 copy ..\lib\skulpt.min.js skulpt.min.js
 copy ..\lib\skulpt-stdlib.js skulpt-stdlib.js
 copy ..\lib\jquery.min.js jquery.min.js
 copy ..\lib\package.json package.json
 copy /y ..\src\* .\
-del codeskulptor.py
 ..\bin\7za.exe a -tzip App.zip *
 cd ..
 if exist App goto end

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="jquery.min.js" type="text/javascript"></script>  
+	<script src="skulpt.min.js" type="text/javascript"></script>
+	<script src="skulpt-stdlib.js" type="text/javascript"></script> 
+	<style>
+		html, body {padding: 0;margin: 0;border - width: 0 px;}
+		#guiframe {	float: left}
+		#outputCtd {clear: both}
+	</style>
+	<script type = "text/javascript">
+	$(document).ready(function() {
+		function getData(file) {
+			var data = "";
+			$.ajax({
+				type: "get",
+				url: file + ".py",
+				cache: true,
+				async: false,
+				dataType: "text",
+				success: function(d) {
+					data = "\n" + d + "\n";
+					var rst = data.match(/\n\s*import\s+\w+/g);
+					if (!!rst) {
+						var successList = [];
+						for (var i = rst.length - 1; i>= 0; i--) {
+							var rst2 = rst[i].match(/import\s+(\w+)/);
+							if (rst2.length>= 2) {
+								var subData = getData(rst2[1]);
+								if(subData != ""){
+									data = data.replace(new RegExp("\\n\\s*import\\s+"+rst2[1]), subData);
+								};
+							}
+						}
+					}
+				}
+			});
+			return data;
+		};
+		var prog = getData("codeskulptor");
+		var mypre = document.getElementById("output");
+		if (prog.match(/simplegui\.create_frame/)) {
+			$("#output").hide();
+		};
+		mypre.innerHTML = '';
+		Sk.pre = "output";
+		Sk.configure({
+			output: outf,
+			read: builtinRead
+		});
+		try {
+			eval(Sk.importMainWithBody("<stdin>", false, prog));
+		} catch (e) {
+			alert(e.toString())
+		}
+		$("#consoleBtn").click(function() {
+			$("#output").fadeToggle();
+		})
+
+	})
+
+	function outf(text) {
+		var mypre = document.getElementById("output");
+		mypre.innerHTML = mypre.innerHTML + text;
+	}
+
+	function builtinRead(x) {
+		if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+			throw "File not found: '" + x + "'";
+		return Sk.builtinFiles["files"][x];
+	} 
+	</script>
+</head> 
+<body>
+	<div id="guiframe"> </div>
+	<div id="outputCtd" style="margin-left:5px;">
+		<div id="consoleBtn" style="cursor: pointer;"> Console: </div>
+		<pre id = "output"> </pre>
+	</div>
+</body>
+</html>

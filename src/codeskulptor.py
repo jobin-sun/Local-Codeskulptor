@@ -6,7 +6,6 @@
 # full functionality.  It does NOT run in Internet Explorer.
 
 import simplegui
-
 message = "Welcome!"
 
 # Handler for mouse click

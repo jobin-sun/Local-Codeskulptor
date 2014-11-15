@@ -8,7 +8,8 @@ copy ..\lib\skulpt.min.js skulpt.min.js
 copy ..\lib\skulpt-stdlib.js skulpt-stdlib.js
 copy ..\lib\jquery.min.js jquery.min.js
 copy ..\lib\package.json package.json
-..\bin\gen_module.exe "..\src" "..\Temp" "codeskulptor.py"
+..\bin\gen_module.exe "..\src\source" "..\..\Temp" "codeskulptor.py"
+copy /y ..\src\resources\* .\
 ..\bin\7za.exe a -tzip App.zip *
 cd ..
 if exist App goto end1

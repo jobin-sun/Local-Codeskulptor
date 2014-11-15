@@ -13,7 +13,7 @@ codeskulptor打包成本地可执行文件说明
   例如:
     sound = simplegui.load_sound('http://www.***.com/***/../test.ogg') =>
     sound = simplegui.load_sound('test.ogg')
-  2)把test.ogg放到src目录中,返回到上一级目录,双击create.bat.
+  2)把test.ogg放到src/resources目录中,然后双击create.bat及可.
 
   暂时只支持ogg,matroska,wav音频.若要支持mp3和H.264等格式,请参阅 https://github.com/rogerwang/node-webkit/wiki/Using-MP3-%26-MP4-%28H.264%29-using-the--video--%26--audio--tags.
 
